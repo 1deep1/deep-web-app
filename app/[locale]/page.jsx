@@ -7,6 +7,10 @@ import {
   faCircleChevronRight,
   faLayerGroup
 } from "@fortawesome/free-solid-svg-icons";
+
+export const metadata = {
+  title: 'Home',
+};
  
 export default function IndexPage() {
   const t = useTranslations('IndexPage');
