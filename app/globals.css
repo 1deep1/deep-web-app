@@ -2,26 +2,164 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Index styles */
+
+
+.beta {
+  transform: rotate(45deg) translateY(70%);
+  top: 0;
+  right: -4%;
+}
+.beta_m {
+  transform: rotate(45deg) translateY(148%);
+  top: -29px;
+  left: calc(100vw - 18%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.color_circle {
+  animation: 0.6s ease-out 0s 1 circleLight;
+
+  position: absolute;
+  width: 40vw;
+  height: 48vw;
+  left: -13vw;
+  top: -30vw;
+  background: linear-gradient(180deg, rgba(0, 194, 255, 0) 0%, #FF29C3 100%);
+  opacity: 0.8;
+  filter: brightness(100%) blur(150px);
+  z-index: -999;
+  transform: rotate(-18deg);
+}
+
+.deep_grid {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 20px;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
+  grid-template-rows: repeat(3, min-content);
+  height: min-content;
+  justify-content: center;
+  overflow: visible;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+}
+
+
+.deep_grid__chart {
+
+}
+
+.deep_grid__textMain {
+  transition: ease-in-out 0.4s;
+}
+
+.deep_grid__textSecond {
+  transition: ease-in-out 0.4s;
+}
+.deep_grid__ico {
+  transition: ease-in-out 0.4s;
+}
+.deep_grid__textHide {
+  transition: ease-in-out 0.4s;
+}
+
+.deep_grid__chart:hover .deep_grid__textMain {
+  transition: ease-in-out 0.4s;
+  transform: translate(0px, -20px);
+  opacity: 0;
+}
+.deep_grid__chart:hover .deep_grid__textSecond {
+  transition: ease-in-out 0.4s;
+  transform: translate(0px, 35px);
+  opacity: 0;
+}
+.deep_grid__chart:hover .deep_grid__ico {
+  transition: ease-in-out 0.4s;
+  transform: translate(0px, 30px);
+}
+.deep_grid__chart:hover .deep_grid__textHide {
+  transition: ease-in-out 0.4s;
+  transform: translate(0px, -20px);
+  opacity: 100;
+}
+
+.deep_card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  position: relative;
+  box-sizing: border-box;
+
+  border-width: 5px;
+  color: #FFF;
+  background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.03) 100%), #15161A;
+  background-clip: padding-box;
+  border: solid 2px transparent;
+  border-radius: 1em;
+
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.04), 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 8px 16px rgba(0, 0, 0, 0.6);
+  
+
+  &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: inherit;
+      background: linear-gradient(to bottom, white, transparent);
+  }
+}
+.deep_card img {
+  width: -webkit-fill-available;
+}
+.deep_card_big {
+  position: relative;
+  box-sizing: border-box;
+  width: -webkit-fill-available;
+
+  border-width: 5px;
+  color: #FFF;
+  background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.03) 100%), #15161A;
+  background-clip: padding-box;
+  border: solid 2px transparent;
+  border-radius: 1em;
+
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.04), 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 8px 16px rgba(0, 0, 0, 0.6);
+  
+
+  &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -2px;
+      border-radius: inherit;
+      background: linear-gradient(to bottom, white, transparent);
+  }
+}
+.deep_card_big img {
+  width: -webkit-fill-available;
+}
+
+@keyframes circleLight {
+  0% {
+      filter: brightness(0) blur(150px);
+  }
+  80% {
+      filter: brightness(110%) blur(150px);
+  }
+  100% {
+      filter: brightness(100%) blur(150px);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media only screen and (max-width: 968px) {
+  .deep_grid {
+      grid-template-columns: repeat(1, minmax(50px, 1fr));
+  }
 }

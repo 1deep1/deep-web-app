@@ -1,4 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
+/** @type {import('tailwindcss').Config} \*/
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,10 +10,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        deep_gray: '#15161A',
+        deep_light: '#83888E',
+        deep_main: '#472183'
+      },
+      fontFamily: {
+        lora: ['var(--font-mont)', ...fontFamily.sans]
       },
     },
   },
